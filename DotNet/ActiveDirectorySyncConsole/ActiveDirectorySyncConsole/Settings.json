@@ -1,0 +1,38 @@
+﻿{
+	"AddressBookDatabaseConnectionSettings":{
+		"Server": "localhost",
+		"Port": null,
+		"Instance": "SQLEXPRESS",
+		"Database": "UserData",
+		"User": null,
+		"Password": null,
+		"Domain": null,
+	},
+	"SyncSettings":{
+		"EmailAddressesIncludesMailNicknameProperty": true,
+		"EmailAddressesIncludesMailProperty": true,
+		"EmailAddressesIncludesProxyAddressesProperty": true,
+		"CollectX400ProxyAddresses": true,
+		"CollectX500ProxyAddresses": true,
+		"CollectSmtpProxyAddresses": true,
+		"CollectSipProxyAddresses": true,
+		"UpdateUserInformation": true
+	},
+	"LogDirectory": "C:\\Temp\\ADSyncLogs\\",
+	"ActiveDirectoryServers":[
+		{
+			"Name": "Server 1",
+			"Domain": null,
+			"ContextContainer": null,
+			"UserName": null,
+			"Password": null
+		},
+		{
+			"Name": "Server 2",
+			"Domain": null,
+			"ContextContainer": null,
+			"UserName": null,
+			"Password": null
+		}
+	]
+}

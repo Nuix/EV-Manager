@@ -1,0 +1,6 @@
+{
+	"workerCount": 4,
+	"workerMemory": 2048,
+	"workerTemp": "E:\\Temp",
+	"workerTimeout": 3600
+}

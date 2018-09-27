@@ -1,0 +1,9 @@
+{
+	"server": "localhost",
+	"port": null,
+	"database": "UserData",
+	"instance": "SQLEXPRESS",
+	"domain": null,
+	"user": null,
+	"password": null
+}

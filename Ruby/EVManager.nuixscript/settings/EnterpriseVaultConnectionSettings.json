@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Server 1",
+		"sql_connection_settings": {
+			"server": "localhost",
+			"port": null,
+			"database": "EnterpriseVaultDirectory",
+			"instance": "SQLEXPRESS",
+			"domain": null,
+			"user": null,
+			"password": null
+		}
+	},
+	{
+		"name": "Server 2",
+		"sql_connection_settings": {
+			"server": "localhost",
+			"port": null,
+			"database": "EnterpriseVaultDirectory",
+			"instance": "SQLEXPRESS",
+			"domain": null,
+			"user": null,
+			"password": null
+		}
+	}
+]
