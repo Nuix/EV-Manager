@@ -5,6 +5,33 @@ EV Manager
 
 View the GitHub project [here](https://github.com/Nuix/EV-Manager) or download the latest release [here](https://github.com/Nuix/EV-Manager/releases).
 
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+    - [Setup](#setup)
+    - [Configuration](configuration)
+        - [AddressBookSqlConnectionSettings.json](#addressbooksqlconnectionsettingsjson)
+        - [EnterpriseVaultConnectionSettings.json](#enterprisevaultconnectionsettingsjson)
+        - [DefaultProcessingSettings.json](#defaultprocessingsettingsjson)
+        - [DefaultWorkerSettings.json](#defaultworkersettingsjson)
+        - [DefaultMimeTypeSettings.csv](#defaultmimetypesettingscsv)
+- [Address Book Database](#address-book-database)
+    - [Tables](#tables)
+        - [UserRecord](#userrecord)
+        - [UserAddress](#useraddress)
+        - [UserPhoneNumber](#userphonenumber)
+        - [UserSID](#usersid)
+        - [IngestionHistory](#ingestionhistory)
+- [Address Book Active Directory Sync Console](#address-book-active-directory-sync-console)
+    - [Sync Logic](#sync-logic)
+    - [Settings File](#settings-file)
+        - [AddressBookDatabaseConnectionSettings](#addressbookdatabaseconnectionsettings)
+        - [SyncSettings](#syncsettings)
+        - [ActiveDirectoryServers](#activedirectoryservers)
+    - [Arguments](#arguments)
+        - [Examples](#examples)
+    - [Return Codes](#return-codes)
+- [License](#license)
+
 # Overview
 
 **Written By:** Jason Wells
