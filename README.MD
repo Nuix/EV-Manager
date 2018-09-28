@@ -358,9 +358,9 @@ By default the tool will look for the file `Settings.json` located in the same d
 
 This file is comprised of several sections:
 
-- [AddressBookDatabaseConnectionSettings](#AddressBookDatabaseConnectionSettings)
-- [SyncSettings](#SyncSettings)
-- [ActiveDirectoryServers](#ActiveDirectoryServers)
+- [AddressBookDatabaseConnectionSettings](#addressbookdatabaseconnectionsettings)
+- [SyncSettings](#syncsettings)
+- [ActiveDirectoryServers](#activedirectoryservers)
 
 ### AddressBookDatabaseConnectionSettings
 
