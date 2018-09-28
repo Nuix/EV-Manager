@@ -30,7 +30,7 @@ Before you can make use of this script you will need to perform some configurati
 
 ### AddressBookSqlConnectionSettings.json
 
-This file allows you to provide database connection settings which will allow the script to interact with the address book database.
+This [file](/Ruby/EVManager.nuixscript/settings/AddressBookSqlConnectionSettings.json) allows you to provide database connection settings which will allow the script to interact with the address book database.
 
 **Example**
 
@@ -64,7 +64,7 @@ The combination of settings needed depends on your MSSQL environment and how it 
 
 ### EnterpriseVaultConnectionSettings.json
 
-This file allows you to provide SQL connection settings to one or more Enterprise Vault SQL backend servers.  The script connects to these servers to query information about available vault stores and associated vault archives.
+This [file](/Ruby/EVManager.nuixscript/settings/EnterpriseVaultConnectionSettings.json) allows you to provide SQL connection settings to one or more Enterprise Vault SQL backend servers.  The script connects to these servers to query information about available vault stores and associated vault archives.
 
 **Example - Single Server**
 
@@ -145,7 +145,7 @@ The combination of settings needed depends on your MSSQL environment and how it 
 
 ### DefaultProcessingSettings.json
 
-This file defines the default processing settings used by the "Data Processing Settings" tab.  If this file does not exist the script will use its own internal default settings (seen below).  See [Processor.setProcessingSettings](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/Processor.html#setProcessingSettings-java.util.Map-) for details on what settings are available and what they do.
+This [file](/Ruby/EVManager.nuixscript/settings/DefaultProcessingSettings.json) defines the default processing settings used by the "Data Processing Settings" tab.  If this file does not exist the script will use its own internal default settings (seen below).  See [Processor.setProcessingSettings](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/Processor.html#setProcessingSettings-java.util.Map-) for details on what settings are available and what they do.
 
 **Example**
 
@@ -190,7 +190,7 @@ This file defines the default processing settings used by the "Data Processing S
 
 ### DefaultWorkerSettings.json
 
-This file defines the default settings used by the "Worker Settings" tab.  If this file does not exist the script will use its own internal default settings (seen below).  See [Processor.setParallelProcessingSettings](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/ParallelProcessingConfigurable.html#setParallelProcessingSettings-java.util.Map-) for details on what these settings do.  Note that currently only `workerCount`, `workerMemory` and `workerTemp` are supported by the script.
+This [file](/Ruby/EVManager.nuixscript/settings/DefaultWorkerSettings.json) defines the default settings used by the "Worker Settings" tab.  If this file does not exist the script will use its own internal default settings (seen below).  See [Processor.setParallelProcessingSettings](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/ParallelProcessingConfigurable.html#setParallelProcessingSettings-java.util.Map-) for details on what these settings do.  Note that currently only `workerCount`, `workerMemory` and `workerTemp` are supported by the script.
 
 **Example**
 
@@ -205,7 +205,7 @@ This file defines the default settings used by the "Worker Settings" tab.  If th
 
 ### DefaultMimeTypeSettings.csv
 
-This CSV file configures how mime type settings will be configured [through the API](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/Processor.html#setMimeTypeProcessingSettings-java.lang.String-java.util.Map-) before processing begins.
+This CSV [file](/Ruby/EVManager.nuixscript/settings/DefaultMimeTypeSettings.csv) configures how mime type settings will be configured [through the API](https://download.nuix.com/releases/desktop/stable/docs/en/scripting/api/nuix/Processor.html#setMimeTypeProcessingSettings-java.lang.String-java.util.Map-) before processing begins.
 
 | Column Name | Description |
 |-------------|-------------|
