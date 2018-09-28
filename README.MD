@@ -454,12 +454,12 @@ The tool also supports several option arguments to modify how it behaves.
 
 | Command Line Argument | Description |
 |-----------------------|-------------|
-| `--settingsfile` | Used to specify an alternate settings JSON file.  If not provided default is to look for `Settings.json` in the same directory as the executable. |
-| `--inputfile` | Used to specify a CSV file to import.  When this option is provided, import will use the specified CSV as the source of user records instead of Active directory. |
-| `--templatefile` | When specified, then tool will save a blank template CSV suitable for import via the `--input-file` argument. |
-| `--exportfile` | When specified, data collected from Active Directory will be written to an output file rather than be synced to the address book database.  This is useful to sample the data being pulled from active directory for review.  Output file specified can end with extension `.txt` or `.csv`.  When `.csv` is specified, the data will be written to a CSV.  When `.txt` is specified the sample data will be written to a text file in a more verbose manner to help determine what addresses are coming from where. |
-| `--limit` | Used to specify a maximum number of records to process.  A value of `0` means no limit. |
-| `--servername` | When provided, only the Active Directory server in the settings file with the provided name will be processed. |
+| `settingsfile` | Used to specify an alternate settings JSON file.  If not provided default is to look for `Settings.json` in the same directory as the executable. |
+| `inputfile` | Used to specify a CSV file to import.  When this option is provided, import will use the specified CSV as the source of user records instead of Active directory. |
+| `templatefile` | When specified, then tool will save a blank template CSV suitable for import via the `--input-file` argument. |
+| `exportfile` | When specified, data collected from Active Directory will be written to an output file rather than be synced to the address book database.  This is useful to sample the data being pulled from active directory for review.  Output file specified can end with extension `.txt` or `.csv`.  When `.csv` is specified, the data will be written to a CSV.  When `.txt` is specified the sample data will be written to a text file in a more verbose manner to help determine what addresses are coming from where. |
+| `limit` | Used to specify a maximum number of records to process.  A value of `0` means no limit. |
+| `servername` | When provided, only the Active Directory server in the settings file with the provided name will be processed. |
 
 ### Examples
 
