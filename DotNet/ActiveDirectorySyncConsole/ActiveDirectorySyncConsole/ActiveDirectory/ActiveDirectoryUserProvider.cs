@@ -102,8 +102,6 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
                 if (!string.IsNullOrWhiteSpace(userEntry.TelephoneNumber))
                     result.PhoneNumbers.Add(userEntry.TelephoneNumber);
 
-                //logger.Debug("Employeed ID: " + result.EmployeeID);
-
                 yield return result;
             }
         }
