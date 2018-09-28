@@ -225,7 +225,7 @@ This CSV file configures how mime type settings will be configured [through the 
 
 # Address Book Database
 
-The address book information is stored in a series of tables which hold information about users.  See the included file `CreateDatabaseTables.sql` for details.
+The address book information is stored in a series of tables which hold information about users.  See the included file [`CreateDatabaseTables.sql`](/SQL/CreateDatabaseTables.sql) for details.
 
 ## Tables
 
