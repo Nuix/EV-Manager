@@ -8,7 +8,7 @@ View the GitHub project [here](https://github.com/Nuix/EV-Manager) or download t
 - [Overview](#overview)
 - [Getting Started](#getting-started)
     - [Setup](#setup)
-    - [Configuration](configuration)
+    - [Configuration](#configuration)
         - [AddressBookSqlConnectionSettings.json](#addressbooksqlconnectionsettingsjson)
         - [EnterpriseVaultConnectionSettings.json](#enterprisevaultconnectionsettingsjson)
         - [DefaultProcessingSettings.json](#defaultprocessingsettingsjson)
