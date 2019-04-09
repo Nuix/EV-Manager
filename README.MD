@@ -319,7 +319,7 @@ When ingestion is performed with a custodian selected, this table records to whi
 
 # Address Book Active Directory Sync Console
 
-This is a headless executable (no GUI) which performs the sync operation between a data source (usually Active Directory) and the address book database from which the script pulls the custodian information.
+This is a headless [.Net Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) executable (no GUI) which performs the sync operation between a data source (usually Active Directory) and the address book database from which the script pulls the custodian information.
 
 ## Sync Logic
 
@@ -514,6 +514,12 @@ ActiveDirectorySyncConsole.exe --exportfile "C:\SomeDirectory\ADUserSample.csv" 
 
 ```
 ActiveDirectorySyncConsole.exe --importfile "C:\SomeDirectory\ADUserSample.csv"
+```
+
+**Generate Template CSV**
+
+```
+ActiveDirectorySyncConsole.exe --templatefile "C:\SomeDirectory\WillImportLater.csv"
 ```
 
 **Process only specific AD server**
