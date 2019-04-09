@@ -87,7 +87,7 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
                 result.SourceUserPrincipal = userEntry;
                 string dn = userEntry.DistinguishedName;
                 result.Name = userEntry.DisplayName ?? "";
-                result.EmployeeID = userEntry.EmployeeId ?? "";
+                result.EmployeeID = userEntry.UniqueIdentifier ?? ""; // We get unique identifier which will use identifier specified in settings
                 result.Title = userEntry.Title ?? "";
                 result.Department = userEntry.Department ?? "";
                 result.Location = userEntry.PhysicalDeliveryOfficeName ?? "";
@@ -166,6 +166,7 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
                 sw.WriteLine("CollectX500ProxyAddresses: " + ExtendedUserPrincipal.CollectX500ProxyAddresses);
                 sw.WriteLine("CollectSipProxyAddresses: " + ExtendedUserPrincipal.CollectSipProxyAddresses);
                 sw.WriteLine("CollectSmtpProxyAddresses: " + ExtendedUserPrincipal.CollectSmtpProxyAddresses);
+                sw.WriteLine("UniqueIdentifierAttribute (Employee ID source): " + ExtendedUserPrincipal.UniqueIdentifierAttribute);
 
                 int recordsIterated = 0;
                 foreach (var adServer in adServers)

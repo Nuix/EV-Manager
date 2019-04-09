@@ -1,7 +1,7 @@
 EV Manager
 ==========
 
-![This script was last tested in Nuix 7.4](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-7.4-green.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0) ![This script was last tested in Nuix 7.4](https://img.shields.io/badge/Script%20Tested%20in%20Nuix-7.4-green.svg)
 
 View the GitHub project [here](https://github.com/Nuix/EV-Manager) or download the latest release [here](https://github.com/Nuix/EV-Manager/releases).
 
@@ -324,7 +324,7 @@ This is a headless executable (no GUI) which performs the sync operation between
 ## Sync Logic
 
 For each record in input source:
-1. If input record has an empty or only whitespace character value for `EmployeeID` the record is skipped.  Since this is the only way to uniquely identify each entry this is a required field.
+1. If input record has an empty or only whitespace character value for `EmployeeID` the record is skipped.  Note that alternate source attributes can be used for this value by configuring the setting `UniqueIdentifierAttribute` in the [SyncSettings](https://github.com/Nuix/EV-Manager#syncsettings) section of the file [Settings.json](https://github.com/Nuix/EV-Manager#settings-file).   Since this is the only way to uniquely identify each entry this is a required field that must have a uniquely identifying value.
 2. If the database does not already contain a record with this `EmployeeID`, a new record is added.  If the database does already contain a record with this `EmployeeID`:
 	1. If settings specify to update user base data:
 		1. If `Name` is different from value in database, update it
@@ -365,7 +365,8 @@ By default the tool will look for the file `Settings.json` located in the same d
 		"CollectX500ProxyAddresses": true,
 		"CollectSmtpProxyAddresses": true,
 		"CollectSipProxyAddresses": true,
-		"UpdateUserInformation": true
+		"UpdateUserInformation": true,
+		"UniqueIdentifierAttribute":  "employeeId" // Valid values: employeeId, employeeNumber
 	},
 	"LogDirectory": "C:\\Temp\\ADSyncLogs\\",
 	"ActiveDirectoryServers":[
@@ -423,6 +424,7 @@ Authentication to the SQL server hosting the address book database will be perfo
 | `CollectSmtpProxyAddresses` | Determines whether SMTP addresses will be collected from the `proxyAddresses` property (if it is enabled) |
 | `CollectSipProxyAddresses` | Determines whether SIP addresses will be collected from the `proxyAddresses` property (if it is enabled) |
 | `UpdateUserInformation` | Determines whether basic user attributes in the table `UserRecord` will be updated to reflect changes in the source data.  Regardless of how this set, new Addresses, Phone Numbers and SIDs will still be added to the address book. |
+| `UniqueIdentifierAttribute` | Determines which attribute will be used as unique identifier for each user record.  Valid values: `employeeId` (default), `employeeNumber`. Note that only those valid values listed are supported.  Support for additional attributes requires additions to the code due to the need for [ExtendedUserPrincipal](https://github.com/Nuix/EV-Manager/blob/master/DotNet/ActiveDirectorySyncConsole/ActiveDirectorySyncConsole/ActiveDirectory/ExtendedUserPrincipal.cs) to know the source attribute at compile time. |
 
 ### ActiveDirectoryServers
 

@@ -26,6 +26,8 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
         public static bool EmailAddressesIncludesMailProperty { get; set; }
         public static bool EmailAddressesIncludesProxyAddressesProperty { get; set; }
 
+        public static string UniqueIdentifierAttribute { get; set; }
+
         static ExtendedUserPrincipal()
         {
             CollectX400ProxyAddresses = CollectX500ProxyAddresses = CollectSmtpProxyAddresses = CollectSipProxyAddresses = true;
@@ -33,6 +35,47 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
         }
 
         public ExtendedUserPrincipal(PrincipalContext context) : base(context) { }
+
+        public string UniqueIdentifier
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(UniqueIdentifierAttribute) || UniqueIdentifierAttribute.Trim().ToLower() == "employeeid")
+                {
+                    return EmployeeId;
+                }
+                else
+                {
+                    string normalizedAttributeName = UniqueIdentifierAttribute.Trim().ToLower();
+                    switch (normalizedAttributeName)
+                    {
+                        case "employeenumber":
+                            return EmployeeNumber;
+                        default:
+                            return "";
+                    }
+                }
+            }
+        }
+
+        #region Supported Alternate Unique Identifiers
+
+        [DirectoryProperty("employeeNumber")]
+        public string EmployeeNumber
+        {
+            get
+            {
+                object[] values = ExtensionGet("employeeNumber");
+                if (values.Length < 1)
+                    return null;
+                else
+                    return (string)values[0];
+            }
+        }
+
+        #endregion
+
+        #region Common Attributes
 
         [DirectoryProperty("whenChanged")]
         public DateTime? WhenChanged
@@ -119,6 +162,32 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
             }
         }
 
+        [DirectoryProperty("telephoneNumber")]
+        public string TelephoneNumber
+        {
+            get
+            {
+                object[] values = ExtensionGet("telephoneNumber");
+                if (values.Length < 1)
+                    return null;
+                else
+                    return (string)values[0];
+            }
+        }
+
+        [DirectoryProperty("proxyAddresses")]
+        public List<string> ProxyAddressesRaw
+        {
+            get
+            {
+                object[] values = ExtensionGet("proxyAddresses");
+                List<string> entries = values.Select(v => v as string).Where(v => !string.IsNullOrWhiteSpace(v)).ToList();
+                return entries;
+            }
+        }
+
+        #endregion
+
         public List<string> ProxyAddresses
         {
             get
@@ -136,54 +205,33 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
             }
         }
 
-        [DirectoryProperty("proxyAddresses")]
-        public List<string> ProxyAddressesRaw
-        {
-            get
-            {
-                object[] values = ExtensionGet("proxyAddresses");
-                List<string> entries = values.Select(v => v as string).Where(v => !string.IsNullOrWhiteSpace(v)).ToList();
-                return entries;
-            }
-        }
-
         public List<string> EmailAddresses
         {
             get
             {
                 HashSet<string> distinctAddresses = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-                if (EmailAddressesIncludesProxyAddressesProperty) {
+                if (EmailAddressesIncludesProxyAddressesProperty)
+                {
                     foreach (var address in ProxyAddresses)
                     {
                         distinctAddresses.Add(address);
                     }
                 }
-                if (EmailAddressesIncludesMailProperty) {
+                if (EmailAddressesIncludesMailProperty)
+                {
                     foreach (var address in Mail)
                     {
                         distinctAddresses.Add(address);
                     }
                 }
-                if (EmailAddressesIncludesMailNicknameProperty) {
+                if (EmailAddressesIncludesMailNicknameProperty)
+                {
                     foreach (var address in MailNickname)
                     {
                         distinctAddresses.Add(address);
                     }
                 }
                 return distinctAddresses.Where(v => !string.IsNullOrWhiteSpace(v)).ToList();
-            }
-        }
-
-        [DirectoryProperty("telephoneNumber")]
-        public string TelephoneNumber
-        {
-            get
-            {
-                object[] values = ExtensionGet("telephoneNumber");
-                if (values.Length < 1)
-                    return null;
-                else
-                    return (string)values[0];
             }
         }
     }

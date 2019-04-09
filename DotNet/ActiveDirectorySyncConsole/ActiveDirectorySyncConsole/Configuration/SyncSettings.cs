@@ -12,7 +12,8 @@ namespace ActiveDirectorySyncConsole.Configuration
 		"CollectX400ProxyAddresses": true,
 		"CollectSmtpProxyAddresses": true,
 		"CollectSipProxyAddresses": true,
-		"UpdateUserInformation": true
+		"UpdateUserInformation": true,
+        "UniqueIdentifierAttribute": "employeeId"
 	},
     */
     public class SyncSettings
@@ -25,5 +26,6 @@ namespace ActiveDirectorySyncConsole.Configuration
         public bool CollectSmtpProxyAddresses { get; set; }
         public bool CollectSipProxyAddresses { get; set; }
         public bool UpdateUserInformation { get; set; }
+        public string UniqueIdentifierAttribute { get; set; }
     }
 }
