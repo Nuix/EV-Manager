@@ -40,6 +40,7 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
         {
             get
             {
+                // Default to EmployeeID since it is a built in AD attribute
                 if (string.IsNullOrWhiteSpace(UniqueIdentifierAttribute) || UniqueIdentifierAttribute.Trim().ToLower() == "employeeid")
                 {
                     return EmployeeId;
@@ -47,6 +48,9 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
                 else
                 {
                     string normalizedAttributeName = UniqueIdentifierAttribute.Trim().ToLower();
+
+                    // Determine which attribute user specified that was not "EmployeeID", if we don't support it, we hit
+                    // the default case and return an empty value which should trigger warnings down the line
                     switch (normalizedAttributeName)
                     {
                         case "employeenumber":
@@ -59,6 +63,9 @@ namespace ActiveDirectorySyncConsole.ActiveDirectory
         }
 
         #region Supported Alternate Unique Identifiers
+
+        // In this region we will define alternate unique identifiers that can be used in place of
+        // the built in EmployeeID
 
         [DirectoryProperty("employeeNumber")]
         public string EmployeeNumber

@@ -57,7 +57,7 @@ namespace ActiveDirectorySyncConsole.Configuration
             result.AppendLine("\tCollectX500ProxyAddresses: " + SyncSettings.CollectX500ProxyAddresses);
             result.AppendLine("\tCollectSmtpProxyAddresses: " + SyncSettings.CollectSmtpProxyAddresses);
             result.AppendLine("\tCollectSipProxyAddresses: " + SyncSettings.CollectSipProxyAddresses);
-            result.AppendLine("\tUniqueIdentifierAttribute (Employee ID source): " + ExtendedUserPrincipal.UniqueIdentifierAttribute);
+            result.AppendLine("\tUniqueIdentifierAttribute (Employee ID source attribute): " + ExtendedUserPrincipal.UniqueIdentifierAttribute);
 
             result.AppendLine("");
             result.AppendLine("Log Directory: " + LogDirectory);
