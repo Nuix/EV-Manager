@@ -6,7 +6,7 @@
 		"Database": "UserData",
 		"User": null,
 		"Password": null,
-		"Domain": null,
+		"Domain": null
 	},
 	"SyncSettings":{
 		"EmailAddressesIncludesMailNicknameProperty": true,
