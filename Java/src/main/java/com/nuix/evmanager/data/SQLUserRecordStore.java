@@ -117,10 +117,17 @@ public class SQLUserRecordStore implements UserRecordStore {
 	 * @return True if a connection can be made and the UserRecord table can be queried, false otherwise
 	 */
 	public boolean canConnect(){
+		logger.info("Testing database connection...");
 		try {
-			Integer result = (Integer)runQuery("SELECT COUNT(1) AS Result FROM UserRecord", (List<Object>)null).get(0).get("Result");
-			System.out.println("canConnect result: "+result);
-			if(result != null && result > 0){
+			String testQuery = "SELECT COUNT(1) AS Result FROM UserRecord";
+			logger.info("Running test query: "+testQuery);
+			Integer result = (Integer)runQuery(testQuery, (List<Object>)null).get(0).get("Result");
+			
+			if(result == null) {
+				logger.info("Returned result was null, considering this failure to connect");
+			} else if (result < 1) {
+				logger.info("Returned result ("+result+") is less than 1, considering this failure to connect");
+			} else {
 				return true;
 			}
 		} catch (Exception e) {

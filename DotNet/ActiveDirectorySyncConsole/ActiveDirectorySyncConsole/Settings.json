@@ -6,7 +6,7 @@
 		"Database": "UserData",
 		"User": null,
 		"Password": null,
-		"Domain": null,
+		"Domain": null
 	},
 	"SyncSettings":{
 		"EmailAddressesIncludesMailNicknameProperty": true,
@@ -16,7 +16,8 @@
 		"CollectX500ProxyAddresses": true,
 		"CollectSmtpProxyAddresses": true,
 		"CollectSipProxyAddresses": true,
-		"UpdateUserInformation": true
+        "UpdateUserInformation": true,
+        "UniqueIdentifierAttribute":  "employeeId" // Valid values: employeeId, employeeNumber
 	},
 	"LogDirectory": "C:\\Temp\\ADSyncLogs\\",
 	"ActiveDirectoryServers":[

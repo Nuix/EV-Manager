@@ -66,10 +66,9 @@ else
 	user_store = SQLUserRecordStore.new(address_book_connection_settings)
 	# Test if we can interact with the user record database
 	if !user_store.canConnect
-		message = "Unable to connect to the user record SQL server, "+
+		message = "Unable to connect to the user record SQL server or UserRecord table contains no rows, "+
 			"please ensure your settings are correct in 'AddressBookSqlConnectionSettings.json'.\n"+
-			"The script will start, but as long as the this database cannot be reached, the address "+
-			"book will not be available to select a custodian."
+			"The script will start, but the address book will not be available to select a custodian."
 		CommonDialogs.showError(message,"Unable to connect to user record database")
 	end
 end
